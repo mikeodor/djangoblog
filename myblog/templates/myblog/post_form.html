@@ -1,0 +1,26 @@
+{% extends "myblog/base.html" %}
+{% block title %}
+  post
+{% endblock title %}
+<style>
+
+</style>
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div style="height:5vh;"></div>
+<form action="" method="post">
+  {% csrf_token %}
+<fieldset class="form-group">
+  <legend class="form-group text-center"><span class="fa fa-pen"></span>Create Post</legend>
+  {{form|crispy}}
+    <input class='btn btn-success' type="submit" value="create">
+</fieldset>
+   
+  
+</form>
+<div style="height:5vh;"></div>
+<div class='d-sm-none' style="height:10vh;"></div>
+{% endblock main %}
+
+

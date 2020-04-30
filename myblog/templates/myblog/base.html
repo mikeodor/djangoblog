@@ -1,0 +1,194 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %}{% endblock title %}</title>
+  <link rel="stylesheet" href="{% static 'myblog/main.css' %}">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="{% static 'myblog/css/all.css '%}">
+  <link href="{% static 'myblog/css/fontawesome.css'%}" rel="stylesheet">
+  <link href="{% static 'myblog/css/brands.css'%}" rel="stylesheet">
+  <link href="{% static 'myblog/css/solid.css'%}" rel="stylesheet">
+  
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <!-- Our Custom CSS -->
+  <link rel="stylesheet" href="style2.css">
+  <!-- Scrollbar Custom CSS -->
+  <!-- <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css"> -->
+
+
+
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-info bg-white d-sm-none navv fixed-top">
+    <!-- <span class="fab fa-maxcdn " style="color: white; font-size:30px; background-color:black; padding:5px"></span> -->
+    <span class="fab fa-autoprefixer icon_reverse" style="font-size:30px; color:#007bff;"></span>
+  </nav>
+  <div class='d-sm-none' style="height: 8vh;"></div>
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-3 d-none d-md-block ">
+        <div class="sidebar">
+          <span class="fab fa-autoprefixer icon_reverse" style="font-size:30px; color:#007bff;"></span>
+          <div style="height: 14vh;"></div>
+          {% if user.is_authenticated %}
+
+          <ul class="list-group groupli">
+            <a href="{% url 'bloghome' %}">
+              <li class="list-group-item btn btn-primary " style="background-color:#007bff; color:white"> <span
+                  class="fa fa-home"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HOME</li>
+            </a>
+            <a href="{% url 'create' %}">
+              <li class="list-group-item btn btn-primary" style="background-color:#007bff; color:white"> <span
+                  class="fa fa-pen"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;POST</li>
+            </a>
+            <a href="{% url 'profile' %}">
+              <li class="list-group-item btn btn-primary" style="background-color:#007bff; color:white"> <span
+                  class="fa fa-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROFILE</li>
+            </a>
+            <a href="{% url 'update' %}">
+              <li class="list-group-item btn btn-primary" style="background-color:#007bff; color:white"> <span
+                  class="fa fa-cog fa-spin"></span> &nbsp;&nbsp;&nbsp;&nbsp; Settings</li>
+            </a>
+          </ul>
+          <div style="height: 14vh;"></div>
+          <footer>
+            <p  style="text-align: left;"><strong> &copy;2020 michael simple blog project </strong></p>
+          </footer>
+          {%else%}
+
+          <ul class="list-group groupli">
+            <a href="{% url 'bloghome' %}">
+              <li class="list-group-item btn btn-primary btn-sm " style="background-color:red; color:white"> <span
+                  class="fas fa-sign-in-alt" style="font-size: 30px;"></span>
+                <marquee behavior="" direction="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong> YOU ARE NOT LOGGED IN!!!</strong></marquee>
+              </li>
+            </a>
+
+            <a href="{% url 'bloghome' %}">
+              <li class="list-group-item btn btn-primary " style="background-color:#007bff; color:white"> <span
+                  class="fa fa-home" style="font-size: 30px; "></span>
+                <marquee behavior="" direction="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WELCOME</marquee>
+              </li>
+            </a>
+          
+
+
+          </ul>
+
+          {% endif %}
+        </div>
+      </div>
+
+
+
+      <!-- MAIN AREA -->
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        {% block main %}
+
+        {% endblock main %}
+      </div>
+
+
+      <!-- right area -->
+      <div class="col-md-3 col-sm-3 col-xs-3  d-none d-md-block ">
+        {% if user.is_authenticated %}
+
+        <ul class="list-group groupli">
+          <a href="{% url 'logout' %}">
+            <li class="list-group-item btn btn-primary" style="background-color: red; width:120px"><span
+                class="fas fa-sign-out-alt"></span> logout</li>
+          </a>
+        </ul>
+
+
+        {%else%}
+        <ul class="list-group groupli">
+          <a href="{% url 'register' %}">
+            <li class="list-group-item btn btn-primary" style="background-color: skyblue; width:140px"><span
+                class="fas fa-sign-out-alt"></span> register</li>
+          </a>
+          <a href="{% url 'login' %}">
+            <li class="list-group-item btn btn-success" style="background-color:green; width:120px"><span
+                class="fas fa-sign-out-alt"></span> sign in</li>
+          </a>
+          <!-- <a href="{% url 'login' %}">
+            <li class="list-group-item btn btn-primary" style="background-color:blue; width:200px"><span
+                class="fas fa-sign-out-alt"></span> contact the developer</li>
+          </a> -->
+
+        </ul>
+        
+        <div style="height: 14vh;"></div>
+        <footer>
+          <strong> &copy;2020 michael simple blog project </strong>
+        </footer>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!--nav for mobile-->
+
+
+
+  <!--BOTTOM NAV BAR FOR SMALLER DEVICES-->
+  <nav class="navbar fixed-bottom navbar-info bg-light d-sm-none  cust" style="border-top:1px solid grey ;">
+
+
+    {% if user.is_authenticated %}
+    <a class='navbar-brand ' href="{% url 'bloghome' %}"><span class="fa fa-home " style="font-size: 30px;"></span></a>
+    <a class='navbar-brand' href="{% url 'profile' %}"><span class="fa fa-user " style="font-size: 30px;"></span></a>
+    <a class='navbar-brand' href="{% url 'create' %}"><span class="fa fa-pen " style="font-size: 30px;"></span></a>
+    <a class='navbar-brand' href="{% url 'update' %}"><span class="fa fa-cog fa-spin " style="font-size: 30px; "></span></a>
+    <a class='navbar-brand ' href="{% url 'logout' %}"><span class="fas fa-sign-out-alt " style="font-size: 30px; color:red;"
+      data-toggle="modal" data-target="#exampleModalCenter"></span></a>
+    {%else%}
+    <a class='navbar-brand ' href="{% url 'bloghome' %}"><span class="fa fa-home " style="font-size: 30px;"></span></a>
+    <a class='navbar-brand ' href="{% url 'login' %}"><span class="fas fa-sign-in-alt "
+        style="font-size: 30px; color:green;"></span></a>
+    <!-- <a class='navbar-brand ' data-toggle="modal" data-target="#exampleModalCente"><span class="fa fa-cog " style="font-size: 30px;"
+        data-toggle="modal" data-target="#exampleModalCenter"></span></a> -->
+        
+    {% endif %}
+
+
+
+  </nav>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script defer src="{% static 'myblog/js/all.js' %}"></script>
+  <script defer src="{% static 'myblog/js/brands.js' %}"></script>
+  <script defer src="{% static 'myblog/js/solid.js' %}"></script>
+  <script defer src="{% static 'myblog/js/fontawesome.js' %}"></script>
+</body>
+
+</html>

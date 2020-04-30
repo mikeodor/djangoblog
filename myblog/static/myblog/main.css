@@ -1,0 +1,227 @@
+body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+    text-align: justify !important;
+  }
+.flex{
+    display: flex;
+   
+}
+
+.spa{
+    margin-right:5px;
+}
+.cust a{
+    color: #007bff !important;
+}
+
+.fa-w-18:active{
+    color: #007bff !important;
+}
+.list-group-item-danger{
+    color:black !important;
+    background-color: red !important;
+}
+#btnn{
+    margin:10px 0 20px 0;
+    float: right;
+    color: #007bff !important;
+}
+.content-section{
+    margin-top: 15px !important;
+}
+.navbar{
+    position:fixed;
+
+}
+.modal-body li{
+    margin-bottom:10px !important;
+}
+
+.navv{
+    position: fixed !important;
+    flex-direction: row-reverse !important;
+}
+.msg {
+    position: relative !important;
+    bottom: -424px !important;
+    /* left: 0px; */
+    /* top: -10px; */
+}
+#coverphoto{
+    border:2px solid black
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: white !important;
+    color: black !important;
+}
+
+
+
+
+
+
+ #coverphoto{
+            border:2px solid aliceblue;
+            height: 200px;
+            position:relative;
+            
+          
+        } 
+ .imgcover {
+            height: 35vh;
+      
+          }
+.flex1 {
+            display: flex;
+            flex-direction: column;
+          }
+      
+          img.profilepic {
+            position: relative !important;
+            top: -40px !important;
+            right: -15px;
+            margin: 0 auto;
+          }
+      
+          a.btn.btn-primary.ma {
+            width: 200px;
+            margin-bottom: 10px
+          }
+      
+          .ma {
+            display: flex;
+            justify-content: space-between;
+      
+      
+          }
+      
+      
+          .page {
+            display: grid;
+            grid-template-columns: 20vw auto;
+          }
+      
+          .sidebar {
+            position: fixed;
+            width: 20vw;
+      
+          }
+      
+          .main {
+            grid-column-start: 2;
+            background: pink;
+          }
+      
+          .groupli li {
+            margin: 10px !important;
+            background-color: none !important;
+          }
+      
+          .groupli a {
+            text-decoration: none !important;
+          }
+      
+          .groupli a li:hover {
+            background-color: white !important;
+            transition: ease-in-out 1s;
+            color: black !important;
+            border: none !important;
+          }
+
+
+          .content-section {
+            background: #ffffff;
+            padding: 10px 20px;
+            border: 1px solid grey;
+            border-radius: 3px;
+            margin-bottom: 20px;
+          }
+          
+          .article-title {
+            color: #444444;
+          }
+          
+          a.article-title:hover {
+            color: #428bca;
+            text-decoration: none;
+          }
+          
+          .article-content {
+            white-space: pre-line;
+          }
+          
+          .article-img {
+            height: 65px;
+            width: 65px;
+            margin-right: 16px;
+          }
+          
+          .article-metadata {
+            padding-bottom: 1px;
+            margin-bottom: 4px;
+            border-bottom: 1px solid grey
+          }
+          
+          .article-metadata a:hover {
+            color: #333;
+            text-decoration: none;
+          }
+          
+          .article-svg {
+            width: 25px;
+            height: 25px;
+            vertical-align: middle;
+          }
+          
+          .account-img {
+            height: 125px;
+            width: 125px;
+            margin-right: 20px;
+            margin-bottom: 16px;
+          }
+          
+          .account-heading {
+            font-size: 2.5rem;
+          }
+
+          /* .section {
+            position: relative;
+            bottom: -190px;
+        } */
+
+@media screen and (min-width:700px){
+.mobile{
+display: none;
+
+}
+}
+@media screen and (min-width:700px){
+ .hidemobile{
+   height:20px;
+   display: none;
+ }
+
+  }
+
+  a{
+    text-decoration: none !important;
+  }
+  .groupli a {
+    text-decoration: none !important;
+  }
+  .content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid grey
+  }
+
+

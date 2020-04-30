@@ -1,0 +1,101 @@
+{% extends "myblog/base.html" %}
+{% load static %}
+{% block title %}
+detail page
+{% endblock title %}
+{% block main %}
+<style>
+  .textalign {
+    text-align: left !important;
+
+  }
+
+
+
+  @media (max-width: 800px) {
+    .this1 {
+      font-size: 15px;
+      font-weight: bold;
+
+    }
+  }
+</style>
+
+<article class="media content-section">
+  <div class="media-body">
+
+    <!-- Button trigger modal -->
+    {% if post.author == user %}
+    <span id='btnn' data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-bars"></span>
+    {% endif %}
+
+    <div class="flex">
+
+      <div class="spa"><img style="width: 50px;height:50px; border-radius:100%;"
+          src="{{post.author.profile.profilepic.url}}  "></div>
+      <div class="article-metadata">
+        <a class="mr-2" href="{%url 'userposts' post.author.username %}">{{ post.author }}</a>
+        <small class="text-muted">{{ post.date_posted}}</small>
+        <hr>
+        <h2 class="article-title this1">{{ post.title }}</h2>
+        <hr>
+        <p class="article-content">{{ post.content }}</p>
+      </div>
+
+
+
+
+    </div>
+
+
+  </div>
+</article>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <a href="{%url 'update' post.id %}">
+          <li class="list-group-item list-group-item-success"><span class="fa fa-pen "></span>update post</li>
+        </a>
+        <a href="{%url 'delete' post.id %}">
+          <li class="list-group-item list-group-item-danger"><span class="fa fa-trash "></span> Delete post</li>
+        </a>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="height:10vh;"></div>
+<!-- As a link -->
+
+
+
+{% endblock main %}

@@ -1,0 +1,26 @@
+{% extends "myblog/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+ register
+{% endblock title %}
+{% block main %}
+<form action="" method="post" class="bg-light" style="padding:20px">
+   
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <legend class="form-group">Register*</legend>
+        {% if messages %}
+        {% for messages in messages  %}
+        <span style="color:#dc3545;  font-weight:bold; font-size:12px;"><strong>{{messages}}</strong></span>
+        {% endfor %}
+        {% endif %}
+        {{form|crispy}}
+
+        <input class="btn btn-success" type="submit" value="Register"><br>
+        <small>Already have an account <a href="{%url 'login' %}">Login Here</a></small>
+    </fieldset>
+</form>
+
+<div style="height: 8vh;"></div>
+
+{% endblock main %}
